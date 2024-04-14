@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+deploy_postgres: &deploy_postgres
+  <<: *default
+  username: <%= ENV.fetch("DATABASE_USER") { nil } %>
+  host: <%= ENV.fetch("DATABASE_HOST") { nil } %>
+  port: <%= ENV.fetch("DATABASE_PORT") { nil } %>
+
+development:
+  <<: *deploy_postgres
+  database: recipe_development
+
+test:
+  <<: *deploy_postgres
+  database: recipe_test
+production:
+  <<: *default
+  database: recipe_production
+  username: recipe
+  password: <%= ENV["recipe_DATABASE_PASSWORD"] %>
