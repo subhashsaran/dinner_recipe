@@ -1,3 +1,5 @@
+<% splitted_params = params[:ingredients].split(',') %>
+
 <%= render 'shared/recipe_form' %>
 
 <% if @recipes.present? %>
@@ -11,7 +13,14 @@
             Rating: <%= recipe.ratings %> stars
           </p>
           <p class="text-gray-700">
-            Ingredients: <%= recipe.ingredients.pluck(:name).join(', ') %>
+            <ul class="list-disc pl-4">
+              <% recipe.ingredients.each do |ingredient| %>
+                <% highlight_ingredient = splitted_params.any? { |search_ingredient| ingredient.name.include?(search_ingredient) } %>
+                <li class="text-gray-700 <%='text-green-500 font-bold' if highlight_ingredient %>">
+                  <%= ingredient.name %>
+                </li>
+              <% end %>
+            </ul>
           </p>
         </div>
       </div>
