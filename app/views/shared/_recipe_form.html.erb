@@ -1,0 +1,11 @@
+<div class="container mx-auto mt-5 mb-10 px-4 flex justify-center">
+  <div class="w-full max-w-md">
+    <h1 class="text-3xl font-bold mb-3">Search Recipes</h1>
+    <form action="/search" method="get" class="flex flex-col gap-2">
+      <label for="ingredients" class="text-base font-medium">Ingredients (comma separated)</label>
+      <input type="text" class="border rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500" id="ingredients" name="ingredients" placeholder="e.g., egg, flour, baking powder, milk" value="<%= params[:ingredients] %>" required>
+      <button type="submit" class="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-700">Search Recipes</button>
+    </form>
+    <div id="results"></div>
+  </div>
+</div>
