@@ -1,4 +1,7 @@
+
 ## Setup Instructions
+
+Live App URL: https://dinner-recipe-475753dcfb84.herokuapp.com/
 
 **Prerequisites:**
 
@@ -62,7 +65,7 @@ Initial Version:
 
 **Improved Version with Basic Syntax Highlighting**
 
-This commit introduced basic syntax highlighting for ingredients (commit 07e55309: [https://github.com/subhashsaran/dinner_recipe/commit/07e55309](https://github.com/subhashsaran/dinner_recipe/commit/07e55309)). While not the most optimal solution, it provides a visual improvement over the initial version.
+This commit introduced basic syntax highlighting for ingredients (commit 07e55309: [https://github.com/subhashsaran/dinner_recipe/commit/d217bcd41dc382311cc80719aea03e9245aea8a4)). While not the most optimal solution, it provides a visual improvement over the initial version.
 
 Improved Version:
 <img width="1581" alt="Screenshot 2567-04-15 at 15 22 11" src="https://github.com/subhashsaran/dinner_recipe/assets/9843667/a5da9e1c-6f64-4964-a9f1-2b4ac503a39c">
