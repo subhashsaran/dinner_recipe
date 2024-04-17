@@ -25,10 +25,6 @@ module Recipes
           expect(recipes).to match_array([recipe1, recipe2])
         end
 
-        it 'returns results in an array' do
-          expect(recipes).to be_a(Array)
-        end
-
         it 'returns unique recipes' do
           expect(recipes.uniq.count).to eq(recipes.count)
         end

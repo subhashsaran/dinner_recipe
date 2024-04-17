@@ -8,15 +8,19 @@ module Recipes
     def call
       return [] if ingredients.empty?
 
-      query = Recipe.joins(:ingredients)
-      conditions = @ingredients.map { |ingredient| "ingredients.name ILIKE ?" }
-      values = @ingredients.map { |ingredient| "%#{ingredient}%" }
+      subquery = Recipe.joins(:ingredients).where(ingredients_condition)
 
-      query.where(conditions.join(' OR '), *values).uniq
-     end
+      Recipe.where(id: subquery).includes(:ingredients)
+    end
 
     private
 
     attr_reader :ingredients
+
+    def ingredients_condition
+      conditions = ingredients.map { |ingredient| "ingredients.name ILIKE ?" }
+      values = ingredients.map { |ingredient| "%#{ingredient}%" }
+      [conditions.join(' OR '), *values]
+    end
   end
 end
